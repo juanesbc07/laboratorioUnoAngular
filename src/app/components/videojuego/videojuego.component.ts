@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import {VideojuegosService} from "../../services/videojuegos.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-videojuego',
-  templateUrl: './videojuego.component.html',
-  styleUrls: ['./videojuego.component.css']
+  templateUrl: './videojuego.component.html'
 })
-export class VideojuegoComponent implements OnInit {
+export class VideojuegoComponent {
 
-  constructor() { }
+  videojuego: any = {};
+  constructor( private _videojuegosService: VideojuegosService,
+               private activatedRoute: ActivatedRoute){
 
-  ngOnInit(): void {
-  }
-
+                    this.activatedRoute.params.subscribe( params => {
+                      this.videojuego = this._videojuegosService.getVideojuego
+                      (params['id']);
+                    });
+    }
 }
