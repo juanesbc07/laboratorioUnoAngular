@@ -6,19 +6,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home">Inicio</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['home']" aria-current="page">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="videojuegos">VideoJuegos</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['videojuegos']">VideoJuegos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="about">Acerca de</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['about']">Acerca de</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar Videojuego" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <img src="assets/tech.png">
+      </ul>
+      <form class="d flex">
+        <input class="form-control me-2" type="search"
+        placeholder="Buscar Videojuego" (keyup.enter)="buscarVideojuego(buscarTexto.value)" #buscarTexto>
+        <button (click)="buscarVideojuego(buscarTexto.value)"
+           class="btn btn-outline-success"
+           type="button">Buscar</button>
       </form>
     </div>
   </div>
